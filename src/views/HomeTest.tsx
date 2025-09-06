@@ -1,4 +1,5 @@
 import {Text, View } from 'react-native';
+import { ProductShelf } from '../components/product/ProductShelf';
 
 export default function HomeTest() {
     return(
@@ -6,6 +7,7 @@ export default function HomeTest() {
             <Text>
                 Home Test
             </Text>
+            <ProductShelf/>
         </View>
     )
 }
