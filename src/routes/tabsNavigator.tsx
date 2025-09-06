@@ -4,14 +4,16 @@ import LoginTest from "../views/LoginTest";
 import SignupTest from "../views/SignupTest";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-    const Tab = createBottomTabNavigator();  
+const Tab = createBottomTabNavigator();
 
 export default function TabsNavigatorApp() {
 
-    return(
+  return (
     <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeTest} />
-      <Tab.Screen name="Profile" component={LoginTest} />
+      <Tab.Screen name="Início" component={HomeTest} />
+      <Tab.Screen name="Busca" component={LoginTest} />
+      <Tab.Screen name="Pedidos" component={SignupTest} />
+      <Tab.Screen name="Perfil" component={SignupTest} />
     </Tab.Navigator>
-    )
+  )
 }
