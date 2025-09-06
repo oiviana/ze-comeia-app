@@ -1,6 +1,7 @@
 import React from "react";
-import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Image } from "react-native";
+import { Colors } from "../../../styles/colors";
 
 export function ProductCard() {
 
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
     },
     productName: {},
     addToCartButton: {
-        backgroundColor: "#FFA800",
+        backgroundColor:Colors.primary,
         width: "100%",
         height: 32,
         borderRadius: 8,
