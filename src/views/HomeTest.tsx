@@ -1,13 +1,16 @@
-import {Text, View } from 'react-native';
+import {ScrollView, Text, View } from 'react-native';
 import { ProductCard } from '../components/product/ProductCard';
+import ProductShelf from '../components/product/ProductShelf';
 
 export default function HomeTest() {
     return(
-        <View>
+        <ScrollView>
             <Text>
                 Home Test
             </Text>
-            <ProductCard/>
-        </View>
+            <ProductShelf/>
+            <ProductShelf/>
+            <ProductShelf/>
+        </ScrollView>
     )
 }

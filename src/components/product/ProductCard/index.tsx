@@ -12,8 +12,8 @@ export function ProductCard() {
             </View>
             <View>
                 <Text style={styles.productName}>Vinho Tinto Reserva</Text>
-                <Text>de R$ 59,90</Text>
-                <Text>por R$ 39,90</Text>
+                <Text style={styles.productListPrice}> R$ 59,90</Text>
+                <Text style={styles.productSellingPrice}> R$ 39,90</Text>
                 <TouchableOpacity style={styles.addToCartButton} onPress={() => console.log("Adicionar")}>
                     <Text style={styles.addToCartText}>Adicionar</Text>
                 </TouchableOpacity>
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         justifyContent: "space-between",
         backgroundColor: "#ffff",
-        width: "100%",
+        width: 160,
         maxWidth: 170,
         minHeight: 270,
         borderRadius: 8,
@@ -40,13 +40,28 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
     },
-    productImageWrapper:{
-        justifyContent:"center",
-        alignItems:"center"
+    productImageWrapper: {
+        justifyContent: "center",
+        alignItems: "center"
     },
-    productName: {},
+    productName: {
+        color: Colors.textMainGray,
+        fontWeight: "500",
+        fontSize: 14,
+        marginBottom: 8
+    },
+    productListPrice: {
+        fontSize: 12,
+        color: Colors.textSecondaryGray,
+        textDecorationLine: "line-through"
+    },
+    productSellingPrice: {
+        fontSize: 16,
+        color: Colors.textMainGray,
+        fontWeight:"600"
+    },
     addToCartButton: {
-        backgroundColor:Colors.primary,
+        backgroundColor: Colors.primary,
         width: "100%",
         height: 32,
         borderRadius: 8,
