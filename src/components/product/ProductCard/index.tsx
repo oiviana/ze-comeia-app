@@ -2,23 +2,44 @@ import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Image } from "react-native";
 import { Colors } from "../../../styles/colors";
+import { Shadow } from "react-native-shadow-2";
 
 export function ProductCard() {
 
     return (
-        <View style={styles.productContainer}>
-            <View style={styles.productImageWrapper}>
-                <Image source={require("../../../assets/images/mock/mock-product-shelf.png")} style={{ width: 110, height: 115 }} />
+        <Shadow
+            startColor="#00000020"
+            distance={2}
+            offset={[0, 2]}
+            corners={{
+                topStart: true,
+                topEnd: true,
+                bottomStart: true,
+                bottomEnd: true,
+            }}
+            containerStyle={{ marginBottom: 6, marginTop: 6 }}
+            style={{ borderRadius: 8 }}
+        >
+            <View style={styles.productContainer}>
+                <View style={styles.productImageWrapper}>
+                    <Image
+                        source={require("../../../assets/images/mock/mock-product-shelf.png")}
+                        style={{ width: 110, height: 115 }}
+                    />
+                </View>
+                <View>
+                    <Text style={styles.productName}>Vinho Tinto Reserva</Text>
+                    <Text style={styles.productListPrice}> R$ 59,90</Text>
+                    <Text style={styles.productSellingPrice}> R$ 39,90</Text>
+                    <TouchableOpacity
+                        style={styles.addToCartButton}
+                        onPress={() => console.log("Adicionar")}
+                    >
+                        <Text style={styles.addToCartText}>Adicionar</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
-            <View>
-                <Text style={styles.productName}>Vinho Tinto Reserva</Text>
-                <Text style={styles.productListPrice}> R$ 59,90</Text>
-                <Text style={styles.productSellingPrice}> R$ 39,90</Text>
-                <TouchableOpacity style={styles.addToCartButton} onPress={() => console.log("Adicionar")}>
-                    <Text style={styles.addToCartText}>Adicionar</Text>
-                </TouchableOpacity>
-            </View>
-        </View>
+        </Shadow>
     )
 }
 
@@ -33,12 +54,6 @@ const styles = StyleSheet.create({
         minHeight: 270,
         borderRadius: 8,
         padding: 8,
-        elevation: 5,
-        // iOS
-        shadowColor: "#000",
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
     },
     productImageWrapper: {
         justifyContent: "center",
@@ -58,7 +73,8 @@ const styles = StyleSheet.create({
     productSellingPrice: {
         fontSize: 16,
         color: Colors.textMainGray,
-        fontWeight:"600"
+        fontWeight: "600",
+        marginBottom: 3
     },
     addToCartButton: {
         backgroundColor: Colors.primary,
