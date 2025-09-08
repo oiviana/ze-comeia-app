@@ -21,28 +21,28 @@ export default function ProductShelf() {
             <Text>
                 Título da Vitrine
             </Text>
-        <FlatList
-            data={products}
-            keyExtractor={(item) => item.id}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            snapToInterval={CARD_WIDTH + CARD_MARGIN} 
-            decelerationRate="fast"
-            contentContainerStyle={{ paddingHorizontal: CARD_MARGIN }}
-            renderItem={() => (
-                <View style={{ marginRight: CARD_MARGIN }}>
-                    <ProductCard />
-                </View>
-            )}
-        />
+            <FlatList
+                data={products}
+                keyExtractor={(item) => item.id}
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                snapToInterval={CARD_WIDTH + CARD_MARGIN}
+                decelerationRate="fast"
+                contentContainerStyle={{ paddingHorizontal: CARD_MARGIN }}
+                renderItem={() => (
+                    <View style={{ marginRight: CARD_MARGIN }}>
+                        <ProductCard />
+                    </View>
+                )}
+            />
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     productShelfContainer: {
-        flexDirection:"column",
-        marginTop:20,
-        marginBottom:20
+        flexDirection: "column",
+        marginTop: 20,
+        marginBottom: 20
     }
 })
