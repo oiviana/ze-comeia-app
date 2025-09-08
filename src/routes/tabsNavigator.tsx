@@ -1,9 +1,9 @@
 import React from "react";
 import HomeTest from "../views/HomeTest";
-import LoginTest from "../views/LoginTest";
 import SignupTest from "../views/SignupTest";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import { ProductsHome } from "../views/products/ProductsHome";
 
 const Tab = createBottomTabNavigator();
 
@@ -17,7 +17,7 @@ export default function TabsNavigatorApp() {
             <Icon name="home" size={30} color={"#FFA800"} />
           ),
         }} />
-      <Tab.Screen name="Busca" component={LoginTest}
+      <Tab.Screen name="Busca" component={ProductsHome}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Icon name="search" size={30} color={"#FFA800"} />
