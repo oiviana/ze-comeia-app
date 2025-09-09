@@ -2,7 +2,6 @@ import React from "react";
 import SignupTest from "../../views/SignupTest";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from "react-native-vector-icons/MaterialIcons";
-import Icons
 import { ProductSearchStackNavigator } from "../stacks/ProductSearchStack";
 import { MainHomeStackNavigator } from "../stacks/HomeStack";
 
