@@ -45,6 +45,6 @@ const styles = StyleSheet.create({
     },
     cardImage: {
         width: 75,
-        height: 45,
+        height: 50,
     },
 });
