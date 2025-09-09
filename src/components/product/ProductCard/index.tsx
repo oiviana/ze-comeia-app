@@ -3,43 +3,52 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Image } from "react-native";
 import { Colors } from "../../../styles/colors";
 import { Shadow } from "react-native-shadow-2";
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { ProductsStackParamList } from "../../../routes/stacks/ProductSearchStack";
 
+type NavigationProp = StackNavigationProp<ProductsStackParamList, "ProductPage">;
 export function ProductCard() {
-
+    const navigation = useNavigation<NavigationProp>();
     return (
-        <Shadow
-            startColor="#00000020"
-            distance={2}
-            offset={[0, 2]}
-            corners={{
-                topStart: true,
-                topEnd: true,
-                bottomStart: true,
-                bottomEnd: true,
-            }}
-            containerStyle={{ marginBottom: 6, marginTop: 6 }}
-            style={{ borderRadius: 8 }}
+        <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("ProductPage", { productId: "testeee" })}
         >
-            <View style={styles.productContainer}>
-                <View style={styles.productImageWrapper}>
-                    <Image
-                        source={require("../../../assets/images/mock/mock-product-shelf.png")}
-                        style={{ width: 110, height: 115 }}
-                    />
+            <Shadow
+                startColor="#00000020"
+                distance={2}
+                offset={[0, 2]}
+                corners={{
+                    topStart: true,
+                    topEnd: true,
+                    bottomStart: true,
+                    bottomEnd: true,
+                }}
+                containerStyle={{ marginBottom: 6, marginTop: 6 }}
+                style={{ borderRadius: 8 }}
+            >
+                <View style={styles.productContainer}>
+                    <View style={styles.productImageWrapper}>
+                        <Image
+                            source={require("../../../assets/images/mock/mock-product-shelf.png")}
+                            style={{ width: 110, height: 115 }}
+                        />
+                    </View>
+                    <View>
+                        <Text style={styles.productName}>Vinho Tinto Reserva</Text>
+                        <Text style={styles.productListPrice}> R$ 59,90</Text>
+                        <Text style={styles.productSellingPrice}> R$ 39,90</Text>
+                        <TouchableOpacity
+                            style={styles.addToCartButton}
+                            onPress={() => console.log("Adicionar")}
+                        >
+                            <Text style={styles.addToCartText}>Adicionar</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
-                <View>
-                    <Text style={styles.productName}>Vinho Tinto Reserva</Text>
-                    <Text style={styles.productListPrice}> R$ 59,90</Text>
-                    <Text style={styles.productSellingPrice}> R$ 39,90</Text>
-                    <TouchableOpacity
-                        style={styles.addToCartButton}
-                        onPress={() => console.log("Adicionar")}
-                    >
-                        <Text style={styles.addToCartText}>Adicionar</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
-        </Shadow>
+            </Shadow>
+        </TouchableOpacity>
     )
 }
 

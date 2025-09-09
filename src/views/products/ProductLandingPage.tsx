@@ -2,14 +2,14 @@ import { Text, View, TouchableOpacity } from "react-native";
 import { RouteProp, useRoute, useNavigation } from "@react-navigation/native";
 import { ProductsStackParamList } from "../../routes/stacks/ProductSearchStack";
 
-export function ProductPage() {
-    const route = useRoute<RouteProp<ProductsStackParamList, "ProductPage">>();
+export function ProductLandingPage() {
+    const route = useRoute<RouteProp<ProductsStackParamList, "ProductLandingPage">>();
     const navigation = useNavigation();
-    const { productId } = route.params;
+    const { categoryId } = route.params;
 
     return (
         <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-            <Text>Produto da categoria: {productId}</Text>
+            <Text>Produtos da categoria: {categoryId}</Text>
 
             <TouchableOpacity
                 style={{

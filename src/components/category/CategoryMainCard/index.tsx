@@ -1,36 +1,40 @@
-import { Image, ImageSourcePropType, StyleSheet, Text, View } from "react-native";
+import { TouchableOpacity, Image, ImageSourcePropType, StyleSheet, Text, View } from "react-native";
 import { Colors } from "../../../styles/colors";
 import { Shadow } from "react-native-shadow-2";
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
 
+// 🔹 Importa o mesmo tipo do ProductSearchStack
+import { ProductsStackParamList } from "../../../routes/stacks/ProductSearchStack";
 interface CategoryCardProps {
-    categoryTitle: string;
-    imageSource: ImageSourcePropType; // <-- nova prop para imagem
+  categoryTitle: string;
+  imageSource: ImageSourcePropType;
 }
 
+type NavigationProp = StackNavigationProp<ProductsStackParamList, "Produtos">;
+
 export function CategoryMainCard({ categoryTitle, imageSource }: CategoryCardProps) {
-    return (
-        <Shadow
-            startColor="#00000020"
-            distance={4} // aumentei um pouco para parecer sombra de verdade
-            offset={[0, 2]} 
-            corners={{
-                topStart: true,
-                topEnd: true,
-                bottomStart: true,
-                bottomEnd: true,
-            }}
-            containerStyle={{ marginBottom: 6, marginTop: 6 }}
-            style={{ borderRadius: 12 }}
-        >
-            <View style={styles.cardWrapper}>
-                <Text style={styles.cardCategoryTitle}>{categoryTitle}</Text>
-                <Image
-                    source={imageSource} // <-- usa a prop recebida
-                    style={styles.cardImage}
-                />
-            </View>
-        </Shadow>
-    )
+  const navigation = useNavigation<NavigationProp>();
+
+  return (
+    <TouchableOpacity
+      activeOpacity={0.8}
+      onPress={() => navigation.navigate("ProductLandingPage", { categoryId: categoryTitle })}
+    >
+      <Shadow
+        startColor="#00000020"
+        distance={4}
+        offset={[0, 2]}
+        containerStyle={{ marginBottom: 6, marginTop: 6 }}
+        style={{ borderRadius: 12 }}
+      >
+        <View style={styles.cardWrapper}>
+          <Text style={styles.cardCategoryTitle}>{categoryTitle}</Text>
+          <Image source={imageSource} style={styles.cardImage} />
+        </View>
+      </Shadow>
+    </TouchableOpacity>
+  );
 }
 
 const styles = StyleSheet.create({
