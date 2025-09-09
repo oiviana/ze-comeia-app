@@ -7,10 +7,10 @@ export function ProductsHome(){
 
     return(
         <ScrollView>
-            <CategoryMainShelf/>
-            <ProductShelf/>
+            <CategoryMainShelf shelfTitle="Categorias"/>
+            <ProductShelf shelfTitle="Cervejas"/>
             <BrandsMainShelf/>
-            <ProductShelf/>
+            <ProductShelf shelfTitle="Petiscos"/>
         </ScrollView>
     )
 }

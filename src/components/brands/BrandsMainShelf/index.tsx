@@ -1,5 +1,6 @@
 import { FlatList, Text, View } from "react-native";
 import { BrandMainCard } from "../BrandMainCard";
+import { ShelfTitle } from "../../commom/ShelfTitle";
 
 export function BrandsMainShelf() {
     const categories = [
@@ -30,7 +31,7 @@ export function BrandsMainShelf() {
 
     return (
         <View>
-            <Text style={{ marginBottom: 8 }}>Navegue por marcas</Text>
+            <ShelfTitle title="Navegue por Marcas"/>
             <FlatList
                 data={groupedCategories}
                 keyExtractor={(_, index) => index.toString()}

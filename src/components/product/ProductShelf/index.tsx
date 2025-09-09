@@ -1,7 +1,11 @@
 import React from "react";
 import { FlatList, View, StyleSheet } from "react-native";
 import { ProductCard } from "../ProductCard";
-import { Text } from "react-native-gesture-handler";
+import { ShelfTitle } from "../../commom/ShelfTitle";
+
+interface ShelfTitleProps {
+    shelfTitle: string
+}
 
 const products = [
     { id: "1", name: "Vinho Tinto" },
@@ -15,12 +19,10 @@ const products = [
 const CARD_WIDTH = 170;
 const CARD_MARGIN = 16;
 
-export default function ProductShelf() {
+export default function ProductShelf({ shelfTitle }: ShelfTitleProps) {
     return (
         <View style={styles.productShelfContainer}>
-            <Text>
-                Título da Vitrine
-            </Text>
+            <ShelfTitle title={shelfTitle} />
             <FlatList
                 data={products}
                 keyExtractor={(item) => item.id}

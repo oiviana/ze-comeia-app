@@ -1,7 +1,12 @@
 import { FlatList, Text, View } from "react-native";
 import { CategoryMainCard } from "../CategoryMainCard";
+import { ShelfTitle } from "../../commom/ShelfTitle";
 
-export function CategoryMainShelf() {
+interface CategoryShelfTitleProps {
+    shelfTitle: string
+}
+
+export function CategoryMainShelf({ shelfTitle }: CategoryShelfTitleProps) {
     const categories = [
         { id: "1", name: "Cervejas", image: require("../../../assets/images/mock/mock-category.png") },
         { id: "2", name: "Destilados", image: require("../../../assets/images/mock/mock-category-2.png") },
@@ -14,7 +19,7 @@ export function CategoryMainShelf() {
 
     return (
         <View>
-            <Text>Categorias</Text>
+            <ShelfTitle title={shelfTitle} />
             <FlatList
                 data={categories}
                 keyExtractor={(item) => item.id}
