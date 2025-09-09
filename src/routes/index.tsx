@@ -3,11 +3,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
  import { Login } from "../views/Login";
 import TabsNavigatorApp from "./tabsNavigator";
-
-export type RootStackParamList = {
-  Login: undefined;
-  MainApp: undefined;
-};
+import { Signup } from "../views/auth/Signup";
+import { RootStackParamList } from "./types";
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -16,6 +13,7 @@ export default function RoutesContainer() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="MainApp" component={TabsNavigatorApp} />
       </Stack.Navigator>
     </NavigationContainer>

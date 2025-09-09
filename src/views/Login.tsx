@@ -2,11 +2,7 @@ import React from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { FormInput } from "../components/forms/FormInput";
-
-type RootStackParamList = {
-  Login: undefined;
-  MainApp: undefined;
-};
+import { RootStackParamList } from "../routes/types";
 
 type LoginScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
@@ -22,6 +18,7 @@ export function Login({ navigation }: Props) {
     <View style={styles.container}>
       <Text style={styles.title}>Tela de Login</Text>
       <FormInput label="Oi" placeholder="Digite seu nome"/>
+      <Button title="Cadastrar" onPress={() => navigation.replace("Signup")} />
       <Button title="Fazer login mais tarde" onPress={() => navigation.replace("MainApp")} />
     </View>
   );
