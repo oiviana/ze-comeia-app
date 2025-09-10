@@ -16,7 +16,14 @@ export function MainHomeStackNavigator() {
   return (
     <MainHomeStack.Navigator screenOptions={{ headerShown: false }}>
       <MainHomeStack.Screen name="MainHome" component={MainHome} />
-      <MainHomeStack.Screen name="ProductPage" component={ProductPage} />
+           <MainHomeStack.Screen
+        name="ProductPage"
+        component={ProductPage}
+        options={{
+          headerShown: true,      // ativa só nessa tela
+          title: "Detalhes",      // define o título do headers
+        }}
+      />
     </MainHomeStack.Navigator>
   );
 }
