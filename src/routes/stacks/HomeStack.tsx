@@ -20,8 +20,8 @@ export function MainHomeStackNavigator() {
         name="ProductPage"
         component={ProductPage}
         options={{
-          headerShown: true,      // ativa só nessa tela
-          title: "Detalhes",      // define o título do headers
+          headerShown: true,   
+          title: "Detalhes", 
         }}
       />
     </MainHomeStack.Navigator>

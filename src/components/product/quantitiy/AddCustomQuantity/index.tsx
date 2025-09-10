@@ -1,10 +1,14 @@
 import React from "react";
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
 
-export function AddSixButton() {
+interface AddCustomQuantityProps {
+    quantity: number;
+}
+
+export function AddCustomQuantity({quantity}:AddCustomQuantityProps) {
     return (
         <TouchableOpacity style={styles.button}>
-            <Text style={styles.text}>+6</Text>
+            <Text style={styles.text}>+{quantity}</Text>
         </TouchableOpacity>
     );
 }
@@ -19,7 +23,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#f2f2f2",
         alignItems: "center",
         justifyContent: "center",
-        width:96
+        width: 96
     },
     text: {
         fontSize: 16,

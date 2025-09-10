@@ -27,6 +27,7 @@ export default function TabsNavigatorApp() {
           tabBarIcon: ({ color, size }) => (
             <Icon name="search" size={30} color={"#FFA800"} />
           ),
+            headerShown: false, 
         }} />
       <Tab.Screen name="Pedidos" component={SignupTest}
         options={{

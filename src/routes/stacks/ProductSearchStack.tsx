@@ -14,10 +14,15 @@ const ProductSearchStack = createStackNavigator<ProductsStackParamList>();
 
 export function ProductSearchStackNavigator() {
   return (
-    <ProductSearchStack.Navigator screenOptions={{ headerShown: false }}>
+    <ProductSearchStack.Navigator>
       <ProductSearchStack.Screen name="Produtos" component={ProductsHome} />
       <ProductSearchStack.Screen name="ProductLandingPage" component={ProductLandingPage} />
-      <ProductSearchStack.Screen name="ProductPage" component={ProductPage} />
+      <ProductSearchStack.Screen name="ProductPage" component={ProductPage} 
+             options={{
+          headerShown: true,   
+          title: "Detalhes", 
+        }}
+      />
     </ProductSearchStack.Navigator>
   );
 }
