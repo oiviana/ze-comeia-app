@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   button: {
     position: 'absolute',
     right: 20,
-    top: 34,
+    top: 30,
     backgroundColor: "#fff",
     width: 44,
     height: 44,
