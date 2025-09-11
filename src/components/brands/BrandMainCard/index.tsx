@@ -1,5 +1,5 @@
 import { Image, ImageSourcePropType, StyleSheet, Text, View } from "react-native";
-import { Colors } from "../../../styles/colors";
+import { colors } from "../../../styles/colors";
 import { Shadow } from "react-native-shadow-2";
 
 interface  BrandMainCardProps {
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     cardWrapper: {
         width: 110,
         height: 70,
-        backgroundColor: Colors.backgroundWhite,
+        backgroundColor: colors.backgroundWhite,
         borderRadius: 12,
         marginRight: 8,
         overflow: "hidden",

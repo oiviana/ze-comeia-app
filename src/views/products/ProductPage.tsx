@@ -23,7 +23,7 @@ export function ProductPage() {
             });
     }, [navigation]);
     return (
-        <View style={{flex:1}}>
+        <View style={{ flex: 1 }}>
             <ScrollView>
                 <View style={styles.imageWrapper}>
                     <Image
@@ -40,14 +40,16 @@ export function ProductPage() {
                         <AddCustomQuantity quantity={6} />
                         <AddCustomQuantity quantity={12} />
                     </View>
-                    
+
                     <Text>Produto da categoria: {productId}</Text>
 
                 </View>
 
             </ScrollView>
             <View style={styles.addToCartWrapper}>
-                <Text>Oi</Text>
+                <TouchableOpacity style={styles.addToCartButton}>
+                    <Text style={styles.addToCartButtonText}>Adicionar</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
@@ -87,15 +89,30 @@ const styles = StyleSheet.create({
     addToCartWrapper: {
         position: "absolute",
         left: 0,
-        right: 0,      
+        right: 0,
         bottom: 0,
         zIndex: 9,
-        height: 120,    
+        height: 120,
         backgroundColor: "#FFF",
         justifyContent: "center",
         alignItems: "center",
         paddingHorizontal: 16,
         borderTopWidth: 1,
         borderTopColor: "#c4c4c4",
+    },
+    addToCartButton: {
+        backgroundColor: "yellow",
+        width: "100%",
+        height: 50,
+        borderRadius: 12,
+        marginBottom: 12,
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    addToCartButtonText: {
+        fontSize: 16,
+        fontWeight: "600",
+        width: 85,
+        textTransform: "uppercase"
     }
 });

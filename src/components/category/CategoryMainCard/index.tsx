@@ -1,5 +1,5 @@
 import { TouchableOpacity, Image, ImageSourcePropType, StyleSheet, Text, View } from "react-native";
-import { Colors } from "../../../styles/colors";
+import { colors } from "../../../styles/colors";
 import { Shadow } from "react-native-shadow-2";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     cardWrapper: {
         width: 180,
         height: 100,
-        backgroundColor: Colors.backgroundWhite,
+        backgroundColor: colors.backgroundWhite,
         borderRadius: 12,
         marginRight: 8,
         position: "relative",

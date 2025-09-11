@@ -1,5 +1,5 @@
 import { StyleSheet, Text } from "react-native";
-import { Colors } from "../../../styles/colors";
+import { colors } from "../../../styles/colors";
 
 interface ShelfTitleProps {
   title: string;

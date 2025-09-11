@@ -16,7 +16,11 @@ export function ProductSearchStackNavigator() {
   return (
     <ProductSearchStack.Navigator>
       <ProductSearchStack.Screen name="Produtos" component={ProductsHome} />
-      <ProductSearchStack.Screen name="ProductLandingPage" component={ProductLandingPage} />
+      <ProductSearchStack.Screen name="ProductLandingPage" component={ProductLandingPage} 
+              options={{
+          headerShown: true,   
+          title: "Produtos", 
+        }}/>
       <ProductSearchStack.Screen name="ProductPage" component={ProductPage} 
              options={{
           headerShown: true,   

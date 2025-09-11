@@ -4,7 +4,9 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { ProductSearchStackNavigator } from "../stacks/ProductSearchStack";
 import { MainHomeStackNavigator } from "../stacks/HomeStack";
-
+import Ionicons from "react-native-vector-icons/Ionicons";
+import CommunityIcon from "react-native-vector-icons/MaterialCommunityIcons";
+import Feather from "react-native-vector-icons/Feather";
 const Tab = createBottomTabNavigator();
 
 export default function TabsNavigatorApp() {
@@ -16,7 +18,8 @@ export default function TabsNavigatorApp() {
         component={MainHomeStackNavigator}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Icon name="home" size={30} color={"#FFA800"} />
+            <Ionicons name="home" size={26} color={"#FFA800"}  />
+
           ),
            headerShown: false, 
         }}
@@ -29,16 +32,16 @@ export default function TabsNavigatorApp() {
           ),
             headerShown: false, 
         }} />
-      <Tab.Screen name="Pedidos" component={SignupTest}
+      <Tab.Screen name="Carrinho" component={SignupTest}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Icon name="shopping-basket" size={30} color={"#FFA800"} />
+            <CommunityIcon name="cart-variant" size={30} color={"#FFA800"} />
           ),
         }} />
       <Tab.Screen name="Perfil" component={SignupTest}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Icon name="account-circle" size={30} color={"#FFA800"} />
+            <CommunityIcon name="account" size={30} color={"#FFA800"} />
           ),
         }} />
     </Tab.Navigator>

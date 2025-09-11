@@ -1,5 +1,6 @@
-export const Colors = {
-  primary: "#FFA800",
+export const colors = {
+  primaryYellow: "#FFDC01",
+  primaryBrown: "#3E2723",
   secondary: "#6200EE",
   backgroundWhite: "#FFFFFF",
   textBoldBlack: "#000000",

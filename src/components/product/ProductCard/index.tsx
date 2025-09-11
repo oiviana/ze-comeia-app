@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Image } from "react-native";
-import { Colors } from "../../../styles/colors";
+import { colors } from "../../../styles/colors";
 import { Shadow } from "react-native-shadow-2";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
@@ -69,24 +69,24 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     productName: {
-        color: Colors.textMainGray,
+        color: colors.textMainGray,
         fontWeight: "500",
         fontSize: 14,
         marginBottom: 8
     },
     productListPrice: {
         fontSize: 12,
-        color: Colors.textSecondaryGray,
+        color: colors.textSecondaryGray,
         textDecorationLine: "line-through"
     },
     productSellingPrice: {
         fontSize: 16,
-        color: Colors.textMainGray,
+        color: colors.textMainGray,
         fontWeight: "600",
         marginBottom: 3
     },
     addToCartButton: {
-        backgroundColor: Colors.primary,
+        backgroundColor: colors.primaryYellow,
         width: "100%",
         height: 32,
         borderRadius: 8,
@@ -96,6 +96,6 @@ const styles = StyleSheet.create({
     addToCartText: {
         textTransform: "uppercase",
         fontWeight: "600",
-        color: "#ffffff",
+        color: colors.primaryBrown,
     }
 });
