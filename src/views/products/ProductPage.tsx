@@ -4,6 +4,7 @@ import { ProductsStackParamList } from "../../routes/stacks/ProductSearchStack";
 import { QuantitySelector } from "../../components/product/quantitiy/QuantitySelector";
 import { AddCustomQuantity } from "../../components/product/quantitiy/AddCustomQuantity";
 import { useEffect } from "react";
+import { colors } from "../../styles/colors";
 
 export function ProductPage() {
     const route = useRoute<RouteProp<ProductsStackParamList, "ProductPage">>();
@@ -97,11 +98,15 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         paddingHorizontal: 16,
-        borderTopWidth: 1,
-        borderTopColor: "#c4c4c4",
+
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: -4 },
+        shadowOpacity: 0.2,
+        shadowRadius: 6,
+        elevation: 7,
     },
     addToCartButton: {
-        backgroundColor: "yellow",
+        backgroundColor: colors.primaryYellow,
         width: "100%",
         height: 50,
         borderRadius: 12,
@@ -113,6 +118,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: "600",
         width: 85,
-        textTransform: "uppercase"
+        textTransform: "uppercase",
+        color: colors.primaryBrown
     }
 });

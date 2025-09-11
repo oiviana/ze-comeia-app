@@ -81,9 +81,9 @@ const styles = StyleSheet.create({
     },
     productSellingPrice: {
         fontSize: 16,
-        color: colors.textMainGray,
+        color: colors.primaryBrown,
         fontWeight: "600",
-        marginBottom: 3
+        marginBottom: 6
     },
     addToCartButton: {
         backgroundColor: colors.primaryYellow,
