@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { Shadow } from "react-native-shadow-2";
 
 export function QuantitySelector() {
   const [quantity, setQuantity] = useState(1);
@@ -15,17 +16,31 @@ export function QuantitySelector() {
   };
 
   return (
-    <View style={styles.wrapper}>
-      <TouchableOpacity style={styles.button} onPress={decrease}>
-        <Text style={styles.buttonText}>-</Text>
-      </TouchableOpacity>
+    <Shadow
+      startColor="#00000020"
+      distance={2}
+      offset={[0, 2]}
+      corners={{
+        topStart: true,
+        topEnd: true,
+        bottomStart: true,
+        bottomEnd: true,
+      }}
+      containerStyle={{ marginBottom: 6, marginTop: 6 }}
+      style={{ borderRadius: 12 }}
+    >
+      <View style={styles.wrapper}>
+        <TouchableOpacity style={styles.button} onPress={decrease}>
+          <Text style={styles.buttonText}>-</Text>
+        </TouchableOpacity>
 
-      <Text style={styles.quantity}>{quantity}</Text>
+        <Text style={styles.quantity}>{quantity}</Text>
 
-      <TouchableOpacity style={styles.button} onPress={increase}>
-        <Text style={styles.buttonText}>+</Text>
-      </TouchableOpacity>
-    </View>
+        <TouchableOpacity style={styles.button} onPress={increase}>
+          <Text style={styles.buttonText}>+</Text>
+        </TouchableOpacity>
+      </View>
+    </Shadow>
   );
 }
 
@@ -34,13 +49,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    borderWidth: 1,
-    borderColor: "#c4c4c4",
+   
     borderRadius: 12,
     paddingHorizontal: 10,
     paddingVertical: 6,
     width: 120,
-    backgroundColor:"#fff"
+    height:55,
+    backgroundColor: "#fff"
   },
   button: {
     width: 32,
@@ -49,7 +64,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#fff",
-   
+
   },
   buttonText: {
     fontSize: 20,
