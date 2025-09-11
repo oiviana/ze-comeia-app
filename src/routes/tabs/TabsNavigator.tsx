@@ -7,6 +7,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import CommunityIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import { colors } from "../../styles/colors";
+import { AccountStackNavigator } from "../stacks/AccountStack";
 const Tab = createBottomTabNavigator();
 
 export default function TabsNavigatorApp() {
@@ -68,7 +69,7 @@ export default function TabsNavigatorApp() {
 
   <Tab.Screen
     name="Perfil"
-    component={SignupTest}
+    component={AccountStackNavigator}
     options={{
       tabBarIcon: ({ focused, size }) => (
         <CommunityIcon

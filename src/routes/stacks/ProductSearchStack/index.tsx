@@ -1,7 +1,7 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import { ProductLandingPage } from "../../views/products/ProductLandingPage";
-import { ProductsHome } from "../../views/products/ProductsHome";
-import { ProductPage } from "../../views/products/ProductPage";
+import { ProductLandingPage } from "../../../views/products/ProductLandingPage";
+import { ProductsHome } from "../../../views/products/ProductsHome";
+import { ProductPage } from "../../../views/products/ProductPage";
 
 export type ProductsStackParamList = {
   Produtos: undefined;

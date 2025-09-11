@@ -1,6 +1,6 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import { MainHome } from "../../views/home";
-import { ProductPage } from "../../views/products/ProductPage";
+import { MainHome } from "../../../views/home";
+import { ProductPage } from "../../../views/products/ProductPage";
 
 export type ProductsStackParamList = {
   MainHome: undefined;

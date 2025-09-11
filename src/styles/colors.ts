@@ -6,8 +6,9 @@ export const colors = {
   backgroundWhite: "#FFFFFF",
   textBoldBlack: "#000000",
   textMainGray: "#333333",
-  textSecondaryGray: "#939699ff",
+  textSecondaryGray: "#a6a6a6",
+  TertiaryGray: "#cccccc",
   textSecondary: "#777777",
   shadowBlack: "#000000",
-  flagBackground: "#FF0000",
+  primaryRed: "#C0392B",
 };
