@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { FormInput } from "../components/forms/FormInput";
-import { RootStackParamList } from "../routes/types";
+import { FormInput } from "../../../components/forms/FormInput";
+import { RootStackParamList } from "../../../routes/types";
 
 type LoginScreenNavigationProp = StackNavigationProp<
   RootStackParamList,

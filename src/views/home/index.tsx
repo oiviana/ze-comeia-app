@@ -1,8 +1,8 @@
 import { ScrollView, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import ProductShelf from '../components/product/ProductShelf';
+import ProductShelf from '../../components/product/ProductShelf';
 
-export default function MainHome() {
+export function MainHome() {
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <ScrollView>

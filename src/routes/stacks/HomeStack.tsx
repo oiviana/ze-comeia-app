@@ -1,12 +1,11 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import { ProductLandingPage } from "../../views/products/ProductLandingPage";
-import MainHome from "../../views/HomeTest";
+import { MainHome } from "../../views/home";
 import { ProductPage } from "../../views/products/ProductPage";
 
 export type ProductsStackParamList = {
   MainHome: undefined;
-  ProductLandingPage: { categoryId: string }; 
-  ProductPage: { productId: string }; 
+  ProductLandingPage: { categoryId: string };
+  ProductPage: { productId: string };
 };
 
 
@@ -16,12 +15,12 @@ export function MainHomeStackNavigator() {
   return (
     <MainHomeStack.Navigator screenOptions={{ headerShown: false }}>
       <MainHomeStack.Screen name="MainHome" component={MainHome} />
-           <MainHomeStack.Screen
+      <MainHomeStack.Screen
         name="ProductPage"
         component={ProductPage}
         options={{
-          headerShown: true,   
-          title: "Detalhes", 
+          headerShown: true,
+          title: "Detalhes",
         }}
       />
     </MainHomeStack.Navigator>
