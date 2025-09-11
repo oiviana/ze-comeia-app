@@ -5,6 +5,9 @@ import { QuantitySelector } from "../../components/product/quantitiy/QuantitySel
 import { AddCustomQuantity } from "../../components/product/quantitiy/AddCustomQuantity";
 import { useEffect } from "react";
 import { colors } from "../../styles/colors";
+import { ProductDescription } from "../../components/product/ProductDescription";
+import WishlistButton from "../../components/wishlist/WishlistButton";
+import { AddToCartButton } from "../../components/cart/AddToCartButton";
 
 export function ProductPage() {
     const route = useRoute<RouteProp<ProductsStackParamList, "ProductPage">>();
@@ -25,12 +28,13 @@ export function ProductPage() {
     }, [navigation]);
     return (
         <View style={{ flex: 1 }}>
-            <ScrollView>
+            <ScrollView contentContainerStyle={{ paddingBottom: 140 }} >
                 <View style={styles.imageWrapper}>
                     <Image
                         source={require("../../assets/images/mock/mock-product-shelf.png")}
                         style={{ width: 90, height: 250 }}
                     />
+                    <WishlistButton />
                 </View>
                 <View style={styles.productContent}>
                     <Text style={styles.productName}>Cerveja Heineken LongNeck 350ML </Text>
@@ -41,17 +45,13 @@ export function ProductPage() {
                         <AddCustomQuantity quantity={6} />
                         <AddCustomQuantity quantity={12} />
                     </View>
-
-                    <Text>Produto da categoria: {productId}</Text>
-
+                    <ProductDescription description="Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." />
+                    {/* <Text>Produto da categoria: {productId}</Text> */}
                 </View>
 
             </ScrollView>
-            <View style={styles.addToCartWrapper}>
-                <TouchableOpacity style={styles.addToCartButton}>
-                    <Text style={styles.addToCartButtonText}>Adicionar</Text>
-                </TouchableOpacity>
-            </View>
+            <AddToCartButton />
         </View>
     );
 }
@@ -63,13 +63,14 @@ const styles = StyleSheet.create({
         borderBottomColor: '#c4c4c4',
         height: 320,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        position: "relative"
     },
     productContent: {
         paddingHorizontal: 12
     },
     productName: {
-        fontSize: 16,
+        fontSize: 17,
         fontWeight: 600,
         marginVertical: 20
     },
@@ -78,8 +79,9 @@ const styles = StyleSheet.create({
         fontSize: 14
     },
     productSellingPrice: {
-        fontSize: 18,
+        fontSize: 20,
         fontWeight: "700",
+        color: colors.primaryBrown,
         marginTop: 4
     },
     quantityWrapper: {
@@ -87,38 +89,4 @@ const styles = StyleSheet.create({
         gap: 8,
         marginVertical: 12
     },
-    addToCartWrapper: {
-        position: "absolute",
-        left: 0,
-        right: 0,
-        bottom: 0,
-        zIndex: 9,
-        height: 120,
-        backgroundColor: "#FFF",
-        justifyContent: "center",
-        alignItems: "center",
-        paddingHorizontal: 16,
-
-        shadowColor: "#000",
-        shadowOffset: { width: 0, height: -4 },
-        shadowOpacity: 0.2,
-        shadowRadius: 6,
-        elevation: 7,
-    },
-    addToCartButton: {
-        backgroundColor: colors.primaryYellow,
-        width: "100%",
-        height: 50,
-        borderRadius: 12,
-        marginBottom: 12,
-        justifyContent: "center",
-        alignItems: "center"
-    },
-    addToCartButtonText: {
-        fontSize: 16,
-        fontWeight: "600",
-        width: 85,
-        textTransform: "uppercase",
-        color: colors.primaryBrown
-    }
 });
