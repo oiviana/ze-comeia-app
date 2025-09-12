@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { colors } from "../../../../styles/colors";
+import { AddressOptionsModal } from "../AddressOptionsModal";
 
 interface AddressCardProps {
   id: string;
@@ -12,11 +14,12 @@ interface AddressCardProps {
   state: string;
   complement?: string;
   referencePoint?: string;
-  selected?: boolean; // <- nova prop
+  selected?: boolean;
   onPress?: () => void;
 }
 
 export function AddressCard({
+  id,
   nickname,
   street,
   number,
@@ -28,38 +31,59 @@ export function AddressCard({
   selected = false,
   onPress
 }: AddressCardProps) {
+  const [optionsVisible, setOptionsVisible] = useState(false);
+
+  function handleEdit() {
+    console.log("Editar endereço", id);
+    setOptionsVisible(false);
+  }
+
+  function handleDelete() {
+    console.log("Excluir endereço", id);
+    setOptionsVisible(false);
+  }
+
   return (
-    <TouchableOpacity
-      style={[styles.card, selected && styles.selectedCard]}
-      onPress={onPress}
-    >
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>
-          {nickname || `${street}, ${number}`}
-        </Text>
-      </View>
-
-      <View style={styles.details}>
-        {nickname && (
-          <Text style={styles.headerSubtitle}>
-            {street}, <Text style={styles.detailText}>{number} </Text>
+    <>
+      <TouchableOpacity
+        style={[styles.card, selected && styles.selectedCard]}
+        onPress={onPress}
+      >
+        <View style={styles.header}>
+          <Text style={styles.headerTitle}>
+            {nickname || `${street}, ${number}`}
           </Text>
-        )}
-        <Text style={styles.detailText}>{neighbourhood} </Text>
-        <Text style={styles.detailText}>
-          {city} - {state}
-        </Text>
-      </View>
+        </View>
 
-      <TouchableOpacity>
-        <Icon
-          name="more-vert"
-          size={28}
-          color={colors.primaryBrown}
-          style={styles.optionsIcon}
-        />
+        <View style={styles.details}>
+          {nickname && (
+            <Text style={styles.headerSubtitle}>
+              {street}, <Text style={styles.detailText}>{number} </Text>
+            </Text>
+          )}
+          <Text style={styles.detailText}>{neighbourhood}</Text>
+          <Text style={styles.detailText}>
+            {city} - {state}
+          </Text>
+        </View>
+
+        <TouchableOpacity onPress={() => setOptionsVisible(true)}>
+          <Icon
+            name="more-vert"
+            size={28}
+            color={colors.primaryBrown}
+            style={styles.optionsIcon}
+          />
+        </TouchableOpacity>
       </TouchableOpacity>
-    </TouchableOpacity>
+
+      <AddressOptionsModal
+        visible={optionsVisible}
+        onClose={() => setOptionsVisible(false)}
+        onEdit={handleEdit}
+        onDelete={handleDelete}
+      />
+    </>
   );
 }
 
@@ -69,11 +93,11 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     padding: 12,
     marginBottom: 16,
-    borderWidth:2,
+    borderWidth: 2,
     borderColor: "#f0f0f0",
     minHeight: 126,
     position: "relative",
-    justifyContent: "center",
+    justifyContent: "center"
   },
   selectedCard: {
     borderWidth: 2,
