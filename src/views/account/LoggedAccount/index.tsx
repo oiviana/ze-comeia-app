@@ -10,28 +10,29 @@ export function LoggedAccount() {
     return (
         <SafeAreaView style={{ paddingHorizontal: 16, paddingTop: 16 }}>
             <ScrollView>
-                <TouchableOpacity style={styles.accountHeader}>
+                <TouchableOpacity style={styles.accountHeader}
+                    onPress={() => navigation.navigate("AccountDetails")}>
                     <Icon
                         name="account-circle"
                         size={80}
-                        color={colors.textSecondaryGray}
+                        color={colors.secondaryYellow}
                     />
                     <View>
                         <Text style={styles.accountName}>Lucas Viana</Text>
                         <Text style={styles.accountEmail}>vianalucas80@gmail.com</Text>
                     </View>
-                    <TouchableOpacity>
-                        <Icon
-                            name="mode-edit"
-                            size={34}
-                            color={colors.primaryBrown}
-                            style={styles.accountOptionHeader}
-                        />
-                    </TouchableOpacity>
+                    <Icon
+                        name="mode-edit"
+                        size={34}
+                        color={colors.primaryBrown}
+                        style={styles.accountOptionHeader}
+                    />
                 </TouchableOpacity>
                 <View style={styles.accountOptions}>
 
-                    <TouchableOpacity style={[styles.accountOptionButton, { borderTopWidth: 0 }]}>
+                    <TouchableOpacity style={[styles.accountOptionButton, { borderTopWidth: 0 }]}
+                    onPress={() => navigation.navigate("Orders")}
+                    >
                         <Icon
                             name="receipt"
                             size={30}
@@ -82,8 +83,6 @@ export function LoggedAccount() {
                         />
                         <Text style={[styles.accountOptionText, { color: colors.primaryRed }]}>Sair</Text>
                     </TouchableOpacity>
-
-
                 </View>
             </ScrollView>
         </SafeAreaView>
@@ -112,7 +111,7 @@ const styles = StyleSheet.create({
         paddingVertical: 18,
         backgroundColor: "#fff",
         borderTopWidth: 1,
-        borderColor: colors.TertiaryGray,
+        borderColor: "#f0f0f0",
         flexDirection: "row",
         alignItems: "center"
     },
@@ -136,7 +135,7 @@ const styles = StyleSheet.create({
     },
     accountOptionHeader: {
         position: "absolute",
-        bottom: -16,
-        right: -60
+        top: 32,
+        right: 20
     }
 });
