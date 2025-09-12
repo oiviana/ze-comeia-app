@@ -1,9 +1,12 @@
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { colors } from "../../../styles/colors";
+import { useNavigation } from "@react-navigation/native";
+import type { StackNavigationProp } from "@react-navigation/stack";
+import type { AccountStackParamList } from "../../../routes/stacks/AccountStack";
 export function LoggedAccount() {
-
+    const navigation = useNavigation<StackNavigationProp<AccountStackParamList>>();
     return (
         <SafeAreaView style={{ paddingHorizontal: 16, paddingTop: 16 }}>
             <ScrollView>
@@ -38,7 +41,9 @@ export function LoggedAccount() {
                         <Text>Acompanhar Pedidos</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.accountOptionButton}>
+                    <TouchableOpacity style={styles.accountOptionButton}
+                        onPress={() => navigation.navigate("Addresses")}
+                    >
                         <Icon
                             name="place"
                             size={30}
@@ -75,7 +80,7 @@ export function LoggedAccount() {
                             color={colors.primaryRed}
                             style={styles.accountOptionIcon}
                         />
-                        <Text style={[styles.accountOptionText,{ color: colors.primaryRed }]}>Sair</Text>
+                        <Text style={[styles.accountOptionText, { color: colors.primaryRed }]}>Sair</Text>
                     </TouchableOpacity>
 
 
